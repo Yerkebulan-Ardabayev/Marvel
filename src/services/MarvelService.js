@@ -8,14 +8,6 @@ const useMarvelService = () => {
     const _baseOffset = 210;
 
 
-    // const getAllCharacters = async (offset = _baseOffset) => {
-    //     const res = await request(`${_apiBase}characters?limit=9&offset=${offset}&${_apiKey}`);
-    //     return res.data.results.map(_transformCharacter);
-    // }
-
-    // Вариант модификации готового метода для поиска по имени. 
-    // Вызывать его можно вот так: getAllCharacters(null, name)
-
     const getAllCharacters = async (offset = _baseOffset, name = '') => {
         const res = await request(`${_apiBase}characters?limit=9&offset=${offset}${name ? `&name=${name}` : '' }&${_apiKey}`);
         return res.data.results.map(_transformCharacter);
